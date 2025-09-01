@@ -40,8 +40,3 @@ int ft_printf(const char *format, ...)
     va_end(args);
     return (counter);
 }
-int main(void)
-{
-    int ret;
-    ret = ft_printf("hola %s", 0);
-}
