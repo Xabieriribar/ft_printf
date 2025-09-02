@@ -10,6 +10,9 @@ SRCS		=	ft_printf.c \
 				print_char.c \
 				print_int.c \
 				print_str.c \
+				print_unsigned.c \
+				print_hex.c \
+				print_pointer.c \
 	
 OBJS		=	$(SRCS:.c=.o)
 OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
