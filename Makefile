@@ -13,6 +13,7 @@ SRCS		=	ft_printf.c \
 				print_unsigned.c \
 				print_hex.c \
 				print_pointer.c \
+				print_percent.c \
 	
 OBJS		=	$(SRCS:.c=.o)
 OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
