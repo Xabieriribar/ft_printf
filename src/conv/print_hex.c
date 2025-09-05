@@ -1,17 +1,16 @@
 #include "ft_printf.h"
 
-int ft_print_hex(va_list args, int uppercase)
+int ft_print_hex(unsigned int n, int uppercase)
 {
-    char    *str;
-    unsigned int     nbr;
-    int     len;
+    char    *base;
+    char    *res;
+    int     n_written;
 
-    nbr = va_arg(args, unsigned int);
-    str = ft_utoa_base(nbr, uppercase);
-    if (!str)
-        return (-1);
-    len = ft_strlen(str);
-    write(1, str, len);
-    free(str);
-    return (len);
+    base = "0123456789abcdef";
+    if (uppercase)
+        base = "0123456789ABCDEF";
+    res = ft_putnbr_base(n, base);
+    n_written = ft_print_str(res);
+    free(res);
+    return (n_written);
 }
