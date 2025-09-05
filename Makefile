@@ -1,27 +1,28 @@
-NAME		=	libftprintf.a	
-CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -g
-AR			=	ar rcs
-RM			=	rm -f
+NAME		:=	libftprintf.a	
+CC			:=	cc
+CFLAGS		:=	-Wall -Wextra -Werror -g
+AR			:=	ar 
+AR_FLAGS	:=  rcs
+RM			:=	rm -f
+INCDIR		:= include
+SRCDIR		:= src
 
 SRCS		=	ft_printf.c \
-				parser.c \
-				utils.c \
-				print_char.c \
-				print_int.c \
-				print_str.c \
-				print_unsigned.c \
-				print_hex.c \
-				print_pointer.c \
-				print_percent.c \
+				$(SRCDIR)/parser/parser.c \
+				$(SRCIDR)/utils/utils.c \
+				$(SRCDIR)/conv/print_char.c \
+				$(SRCDIR)/conv/print_int.c \
+				$(SRCDIR)/conv/print_str.c \
+				$(SRCDIR)/conv/print_hex.c \
+				$(SRCIDR)/conv/print_pointer.c \
+				$(SRCDIR)/conv/print_percent.c \
 	
 OBJS		=	$(SRCS:.c=.o)
-OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 bonus:		$(OBJS) $(OBJS_BONUS)
 	$(AR) $(NAME) $(OBJS) $(OBJS_BONUS)
