@@ -10,6 +10,19 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
+size_t  ft_strnlen(unsigned long long n)
+{
+    size_t  len;
+    
+    len = 0;
+    while (n > 0)
+    {
+        len++;
+        n /= 10;
+    }
+    return (len);
+}
+
 int ft_write_rev(char *buffer, size_t i)
 {
     int total;
@@ -30,6 +43,7 @@ int ft_putnbr_base(unsigned long long n, char *base)
     size_t  i;
     unsigned int base_len;
 
+    i = 0;
     base_len = ft_strlen(base);
     if (base_len < 2)
     {
