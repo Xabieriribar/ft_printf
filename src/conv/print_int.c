@@ -1,17 +1,21 @@
 #include "ft_printf.h"
 
-int print_int(va_list args)
+int ft_print_int(int n)
 {
-    char    *str;
-    int     nbr;
-    int     len;
+    char    *base;
+    int     n_written;
 
-    nbr = va_arg(args, int);
-    str = ft_itoa(nbr);
-    if (!str)
-        return (-1);
-    len = ft_strlen(str);
-    write(1, str, len);
-    free(str);
-    return (len);
+    base = "0123456789";
+    n_written = ft_putnbr_base(n, base);
+    return (n_written);
+}
+
+int ft_print_unsigned(unsigned int n)
+{
+    int n_written;
+    char    *base;
+
+    base = "0123456789";
+    n_written = ft_putnbr_base(n, base);
+    return (n_written);
 }

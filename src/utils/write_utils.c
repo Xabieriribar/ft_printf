@@ -3,14 +3,16 @@
 int     ft_putchar(char c)
 {
     write(1, &c, 1);
+    return (1);
 }
 
 int     ft_write(const char *s, size_t len)
 {
     write(1, s, len);
+    return (len);
 }
 
-int     ft_print_str(char *str)
+int     ft_putstr(const char *str)
 {
     int  count;
     size_t  len;

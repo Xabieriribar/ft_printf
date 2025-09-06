@@ -9,7 +9,8 @@ size_t	ft_strlen(const char *s)
 		len++;
 	return (len);
 }
-int write_rev(char *buffer, size_t i)
+
+int ft_write_rev(char *buffer, size_t i)
 {
     int total;
 
@@ -23,15 +24,7 @@ int write_rev(char *buffer, size_t i)
     return (total);
 }
 
-void    ft_put_neg(unsigned long long n)
-{
-    if (n < 0)
-    {
-        ft_write('-');
-        n = -n;
-    }
-}
-void    ft_putnbr_base(unsigned long long n, char *base)
+int ft_putnbr_base(unsigned long long n, char *base)
 { 
     char    buffer[32];
     size_t  i;
@@ -40,18 +33,18 @@ void    ft_putnbr_base(unsigned long long n, char *base)
     base_len = ft_strlen(base);
     if (base_len < 2)
     {
-        return (-1)
+        return (-1);
     }
-    if (nl == 0)
+    if (n == 0)
     {
-        ft_write('0');
+        ft_putchar('0');
         return (1);
     }
-    while (v > 0)
+    while (n > 0)
     {
         buffer[i] = base[n % base_len];
         i++;
         n /= base_len;
     }
-     
+    return (ft_write_rev(buffer, i));
 }
